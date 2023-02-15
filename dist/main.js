@@ -1,0 +1,1 @@
+(()=>{"use strict";class t{constructor(t,e,s,i,n){this.title=t,this.description=e,this.dueDate=s,this.priority=i,this.checklist=n}}const e=[];document.getElementById("form").addEventListener("submit",(function(s){s.preventDefault();const i=document.getElementById("title").value,n=new t(i);e.push(n),console.log(e)}))})();
