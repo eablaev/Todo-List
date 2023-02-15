@@ -1,12 +1,7 @@
 
 import TodoItem from './todoMaker';
 
-
 const todoArr = [];
-
-
-
-
 
 const form = document.getElementById('form');
 
