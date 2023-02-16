@@ -1,6 +1,7 @@
 
 import TodoItem from './todoMaker';
 import display from './displayTodos';
+import './style.css';
 
 const todoArr = [];
 
