@@ -1,19 +1,79 @@
 
+html {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 /* form styling */
 
 
+.formContainer{
+    background-color: aquamarine;
+    display: inline-block;
+    
+}
+.formContainer h2 {
+    margin: 0;
+    background-color: rgb(99, 91, 105);
+    color: white;
+    padding-left: .2rem;
+}
+
+.form{
+    
+}
+
 .formUl{
-    background-color: aqua;
+    
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    
 }
 
 .formLi{
-    list-style: none;
-    border: 1px solid black;
+    padding:.2rem;
+}
+
+textarea{
+    width: 300px;
+    height: 100px;
+    border: none;
+}
+
+input {
+    
+    border: none;
+}
+
+.submit {
+  border-color:  rgb(95, 179, 10);
+  box-shadow: none;
+  border-style: none;
+  border: 1px solid  rgb(95, 179, 10);
+  border-radius: 2px;
+  padding: 0 1rem;
+  color:  rgb(95, 179, 10);
+}
+
+.submit:hover{
+    color: white;
+    background-color: rgb(95, 179, 10);
 }
 
 
+.formLi_footer {
+   display: flex;
+   justify-content: space-between;
+}
 
+.priority{
+    border-radius: 2px;
+    padding: 0;
+    font-size: .7rem;
+    color:  rgb(95, 179, 10);
+    border-color: rgb(95, 179, 10);;
+}
 
+label {
 
-
-
+}

@@ -8,33 +8,41 @@
 </head>
 <body>
     <div id="contentDiv"></div>
-    <form action="" class="form"  id="form">
-        <ul class="formUl">
-            <li class="formLi">
-                <label for="title">Title</label>
-                <input type="text" id="title" required>
-            </li>
-            <li class="formLi">
-                <label for="description">Description</label>
-                <textarea name="description" id="description" cols="10" rows="10" required></textarea>
-            </li>
-            <li class="formLi">
-                <label for="dueDate">Due Date</label>
-                <input type="date" id="dueDate" required>
-            </li>
-            <li class="formLi">
-                <label for="priority">Priority</label>
-                <select name="priority" id="priority" required>
-                    <option value="low">Low</option>
-                    <option value="med">Med</option>
-                    <option value="high">High</option>
-                </select>
-            </li>
+    <div class="formContainer">
+        <h2>Create New</h2>
+        <form action="" class="form"  id="form">
+            <ul class="formUl">
+                <li class="formLi">
+                    <label for="title"></label>
+                    <input type="text" id="title" placeholder="Title" required>
+                </li>
+                <li class="formLi">
+                    <label for="description"></label>
+                    <textarea name="description" id="description" cols="10" rows="10" placeholder="Description" required></textarea>
+                </li>
+                <li class="formLi">
+                    <label for="dueDate">Due Date</label>
+                    <input type="date" id="dueDate" required>
+                </li>
+                <li class="formLi formLi_footer">
+                    <div>
+                        <label for="priority">Priority</label>
+                    <select name="priority" class="priority" id="priority" required>
+                        <option value="low">LOW</option>
+                        <option value="med">MED</option>
+                        <option value="high">HIGH</option>
+                    </select>
+
+                    </div>
+                    
+                    <button type="submit" id="submit" class="submit">ADD</button>
+                </li>
+            </ul>
             
-            
-        </ul>
-        <button type="submit" id="submit">Add To The List </button>
-    </form>
+        </form>
+
+    </div>
+    
     <script src="./index.bundle.js"></script> 
 </body>
 </html>
