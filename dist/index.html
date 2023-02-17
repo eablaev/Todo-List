@@ -7,41 +7,64 @@
     <title>Todo-List</title>
 </head>
 <body>
-    <div id="contentDiv"></div>
-    <div class="formContainer">
-        <h2>Create New</h2>
-        <form action="" class="form"  id="form">
-            <ul class="formUl">
-                <li class="formLi">
-                    <label for="title"></label>
-                    <input type="text" id="title" placeholder="Title" required>
-                </li>
-                <li class="formLi">
-                    <label for="description"></label>
-                    <textarea name="description" id="description" cols="10" rows="10" placeholder="Description" required></textarea>
-                </li>
-                <li class="formLi">
-                    <label for="dueDate">Due Date</label>
-                    <input type="date" id="dueDate" required>
-                </li>
-                <li class="formLi formLi_footer">
-                    <div>
-                        <label for="priority">Priority</label>
-                    <select name="priority" class="priority" id="priority" required>
-                        <option value="low">LOW</option>
-                        <option value="med">MED</option>
-                        <option value="high">HIGH</option>
-                    </select>
-
-                    </div>
-                    
-                    <button type="submit" id="submit" class="submit">ADD</button>
-                </li>
-            </ul>
-            
-        </form>
+    <div class="contentDiv">
+        <div class="headerDiv">
+            <h1>Todo</h1>
+        </div>
+        <div class="middleDiv">
+            <div class="contentLeftDiv">
+                <div class="projectsDiv">
+                    <div class="homeProject">Home</div>
+                    <div class="workoutProject">Workout</div>
+                    <div class="workProject">Work</div>
+                    <div class="selfDevelopmentProject">Self Development</div>
+                </div>
+            </div>
+            <div  class="todoContainer" id="todoContainer"></div>
+    
+        </div>
+        
+        
+        <div class="formContainer" id="formContainer">
+            <h2>Create New</h2>
+            <form action="" class="form"  id="form">
+                <ul class="formUl">
+                    <li class="formLi">
+                        <label for="title"></label>
+                        <input type="text" id="title" placeholder="Title" required>
+                    </li>
+                    <li class="formLi">
+                        <label for="description"></label>
+                        <textarea name="description" id="description" cols="10" rows="10" placeholder="Description" required></textarea>
+                    </li>
+                    <li class="formLi">
+                        <label for="dueDate">Due Date</label>
+                        <input type="date" class="dueDate" id="dueDate" required>
+                    </li>
+                    <li class="formLi formLi_footer">
+                        <div>
+                            <label for="priority">Priority</label>
+                        <select name="priority" class="priority" id="priority" required>
+                            <option value="low">LOW</option>
+                            <option value="med">MED</option>
+                            <option value="high">HIGH</option>
+                        </select>
+    
+                        </div>
+                        
+                        <button type="submit" id="submit" class="submit">ADD</button>
+                    </li>
+                </ul>
+                
+            </form>
+    
+        </div>
+        <div class="footerDiv">
+            <button class="addNewTodo" id="addNewTodo">+</button>
+        </div>
 
     </div>
+  
     
     <script src="./index.bundle.js"></script> 
 </body>
