@@ -18,10 +18,19 @@ display(todoArr);
 const form = document.getElementById('form');
 const formContainer = document.getElementById('formContainer')
 const addNew = document.getElementById('addNewTodo');
+const closeForm = document.getElementById('closeForm');
+
+
 addNew.addEventListener('click', function(){
     console.log('h')
     formContainer.classList.add('show');
-    console.log(formContainer.classList)
+    console.log(formContainer.classList);
+
+
+});
+
+closeForm.addEventListener('click', function(){
+    formContainer.classList.remove('show');
 })
 
 form.addEventListener('submit', function(e){
@@ -42,4 +51,5 @@ form.addEventListener('submit', function(e){
     formContainer.classList.remove('show')
 
 });
+
 

@@ -1,3 +1,6 @@
+
+import handleCheckBox from './handleCheckBox'
+
 export default function display (array) {
     
     const todoContainer = document.getElementById('todoContainer')
@@ -6,6 +9,18 @@ export default function display (array) {
     array.forEach(element => {
         const todoDiv = document.createElement('div');
         todoDiv.classList.add('todoDiv');
+
+        const todoCheckMark = document.createElement('input');
+      
+        todoCheckMark.setAttribute('type','checkbox');
+        todoCheckMark.setAttribute('id','todoCheckMark');
+        todoCheckMark.classList.add('todoCheckMark');
+        todoCheckMark.addEventListener('change',function(){
+            console.log('hello');
+            handleCheckBox();
+        })
+        
+        
         
         const todoTitle = document.createElement('h5');
         todoTitle.classList.add('todoTitle');
@@ -27,13 +42,16 @@ export default function display (array) {
         todoDiv.appendChild(todoDivLeft);
         todoDiv.appendChild(todoDivRight);
 
-
+        todoDivLeft.appendChild(todoCheckMark);
         todoDivLeft.appendChild(todoTitle);
         todoDivRight.appendChild(todoDescription);
         todoDivRight.appendChild(dueDate);
 
 
         todoContainer.appendChild(todoDiv);
+        
+      
 
     });
 }
+
