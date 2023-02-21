@@ -14,7 +14,6 @@ const todoArr = [
 display(todoArr);
 
 
-
 const form = document.getElementById('form');
 const formContainer = document.getElementById('formContainer')
 const addNew = document.getElementById('addNewTodo');
@@ -22,7 +21,6 @@ const closeForm = document.getElementById('closeForm');
 
 
 addNew.addEventListener('click', function(){
-    console.log('h')
     formContainer.classList.add('show');
     console.log(formContainer.classList);
 
@@ -42,12 +40,9 @@ form.addEventListener('submit', function(e){
     
     
     const todo = new TodoItem(title,description,dueDate,priority);
+
     todoArr.push(todo);
-
     display(todoArr)
-
-    console.log(todoArr);
-
     formContainer.classList.remove('show')
 
 });
