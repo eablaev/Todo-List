@@ -1,12 +1,20 @@
 export default function handleDetails(element) {
-    console.log("handle details");
-    console.log(element)
-
-    
+   
 
     const detailsWindow  = document.createElement('div');
     detailsWindow.classList.add('detailsWindow');
+    detailsWindow.classList.add('show');
     detailsWindow.setAttribute('id','detailsWindow');
+
+    const closeDetails = document.createElement('div');
+    closeDetails.classList.add('closeDetails');
+    closeDetails.innerHTML ='X';
+    closeDetails.addEventListener('click', function(){
+        detailsWindow.classList.remove('show')
+    })
+
+    const detailsHeader = document.createElement('div');
+    detailsHeader.classList.add('detailsHeader');
 
     const title = document.createElement('h2');
     title.innerHTML = element.title;
@@ -18,8 +26,11 @@ export default function handleDetails(element) {
     const priority = document.createElement('h4');
     priority.innerHTML = element.priority;
 
+    detailsHeader.appendChild(title)
+    detailsHeader.appendChild(closeDetails)
 
-    detailsWindow.appendChild(title)
+    
+    detailsWindow.appendChild(detailsHeader);
     detailsWindow.appendChild(description)
     detailsWindow.appendChild(dueDate)
     detailsWindow.appendChild(priority)

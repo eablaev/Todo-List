@@ -16,8 +16,11 @@ form styling
     background-color: aquamarine;
     display: none;  
     position: absolute;
-    top: 33%;
-    left: 33%; 
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    /* move me leftwards by 50% of my width, along the x-axis, and
+    move me upwards by 50% of my height, along the y-axis */
 }
 
 .formContainer.show {
@@ -199,7 +202,8 @@ contentDiv styling
 //////////////////////
 */
 .contentDiv{
-    border: 1px solid black;
+    position: relative;
+    border: 1px solid rgb(246, 14, 14);
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 60px auto 40px;
@@ -253,6 +257,31 @@ projectsDiv styling
     align-items: center;
     gap: 2rem;
     font-size: 1.3rem;
+}
+/* 
+///////////////////////
+detailsWindow styling
+//////////////////////
+*/
+.detailsWindow{
+    background-color: aquamarine;
+    display: none;  
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+.detailsWindow.show{
+    border: 1px solid black;
+    display: inline-block;  
+}
+
+.detailsHeader{
+    display: flex;
+    justify-content: space-between;
 }
 
 /* 
