@@ -3,6 +3,7 @@ import TodoItem from './todoMaker';
 import display from './displayTodos';
 import handleDelete from './handleDelete';
 import './style.css';
+import handleDetails from './handleDetails';
 
 const todoArr = [
   
@@ -37,28 +38,22 @@ const todoContainer = document.getElementById('todoContainer');
 todoContainer.addEventListener('click',function(e){
     const id = e.target.id;
     
-    if(id == 'todoDelete'){
-        const dataCellValue = e.target.parentNode.parentNode.attributes[2].value;
-        console.log("dataCellValue is "+dataCellValue);
-        console.log("id is "+id);
-        const elementIndex = todoArr.findIndex(element =>{
+    if(id == 'todoDelete') {
+        const dataCellValue = e.target.parentNode.parentNode.attributes[2].value; 
+        const elementIndex = todoArr.findIndex(element => {
             return element.id == dataCellValue;
         });
-
-        console.log("elementIndex is "+elementIndex);
         todoArr.splice(elementIndex,1)
         display(todoArr);
-
+    } else if (id == "todoDetails") {
+        const dataCellValue = e.target.parentNode.parentNode.attributes[2].value; 
+        const elementIndex = todoArr.findIndex(element => {
+            return element.id == dataCellValue;
+        });
+        const arrayElement = todoArr[elementIndex];
+        handleDetails(arrayElement);
     }
-   
-
-
-})
-
-
-
-
-
+});
 
 addNew.addEventListener('click', function(){
     formContainer.classList.add('show');
