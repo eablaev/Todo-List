@@ -1,15 +1,23 @@
-import handleCheckBox from './handleCheckBox'
-import handleDetails from './handleDetails'
+import handleCheckBox from './handleCheckBox';
+import handleDetails from './handleDetails';
+
+
+import handleEdit from './handleEdit';
+
 
 export default function display (array) {
-
+    console.log('inside Display')
     const todoContainer = document.getElementById('todoContainer');
-    todoContainer.textContent = '';
+    todoContainer.innerHTML = '';
 
-    array.forEach(element => {
+    array.forEach((element,index) => {
+        const cell = index;
+        element.id = index;
+        
         const todoDiv = document.createElement('div');
         todoDiv.classList.add('todoDiv');
         todoDiv.setAttribute('id','todoDiv');
+        todoDiv.setAttribute('data-cell',cell)
 
         const todoPriority = document.createElement('div');
         todoPriority.setAttribute('id', 'todoPriority');
@@ -19,7 +27,7 @@ export default function display (array) {
         todoCheckMark.setAttribute('type','checkbox');
         todoCheckMark.setAttribute('id','todoCheckMark');
         todoCheckMark.classList.add('todoCheckMark');
-        todoCheckMark.addEventListener('change',handleCheckBox)
+        todoCheckMark.addEventListener('change',handleCheckBox);    
         
         const todoTitle = document.createElement('h5');
         todoTitle.classList.add('todoTitle');
@@ -37,6 +45,19 @@ export default function display (array) {
         const dueDate = document.createElement('h6');
         dueDate.classList.add('dueDate');
         dueDate.innerHTML = element.dueDate;
+
+        const todoEdit = document.createElement('div');
+        todoEdit.classList.add('todoEdit');
+        todoEdit.addEventListener('click',handleEdit);
+
+        const todoDelete = document.createElement('div');
+        todoDelete.classList.add('todoDelete');
+        todoDelete.setAttribute('id','todoDelete');
+       
+       
+
+   
+        
 
         /////////////////////////
         // Creating todo layout//
@@ -61,6 +82,8 @@ export default function display (array) {
         todoDivRight.appendChild(todoDetails);
         // todoDivRight.appendChild(todoDescription);
         todoDivRight.appendChild(dueDate);
+        todoDivRight.appendChild(todoEdit);
+        todoDivRight.appendChild(todoDelete)
         
         todoDiv.appendChild(todoDivLeft);
         todoDiv.appendChild(todoDivCenter);

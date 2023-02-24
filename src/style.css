@@ -1,4 +1,6 @@
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 html {
@@ -152,6 +154,44 @@ todoDiv styling
     margin: 0;
     font-size: 1rem;
     font-weight: 400;
+}
+
+.todoEdit {
+       
+    height: 1rem;
+    width: 1rem;
+    cursor: pointer;
+}
+
+.todoDelete {
+    
+    height: 1rem;
+    width: 1rem;
+    cursor: pointer;
+  
+}
+
+.todoEdit::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900; 
+    content: "\f044";
+    display: inline-block;
+    color: rgb(17, 0, 255);
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+.todoDelete::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900; 
+    content: "\f2ed";
+    display: inline-block;
+    color: red;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
 }
 /* 
 ///////////////////////
