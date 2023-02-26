@@ -1,14 +1,17 @@
 
+import addNewProjectForm from './addNewProjectForm';
+
 export default function displayProjects(array) {
     console.log('DisplayProjects');
     
-    const projectsContainer = document.getElementById('projectsContainer');
-    console.log(projectsContainer)
-
     
+    const projectsContainer = document.getElementById('projectsContainer');
+    projectsContainer.innerHTML = '';
+  
+
     array.forEach((element, index) => {
         const projectDiv = document.createElement('div');
-        projectDiv.classList.add('projectsContainer');
+        projectDiv.classList.add('projectsDiv');
         projectDiv.setAttribute('id','projectDiv');
 
         const projectTitle = document.createElement('h2');
@@ -21,19 +24,23 @@ export default function displayProjects(array) {
 
         
     });
+
+    const newProject = document.createElement('button');
+    newProject.classList.add('newProject');
+    newProject.setAttribute('id','newProject');
+    newProject.innerHTML = 'New';
+
+    projectsContainer.appendChild(newProject);
+    newProject.addEventListener('click', () => {
+        
+        addNewProjectForm();
+        
+    })
 }
 
 
 
-{/* <div class="projectsContainer" id="projectsContainer">
-                    <div class="homeProject" id="homeProject">Home</div>
-                    <div class="workoutProject">Workout</div>
-                    <div class="workProject">Work</div>
-                    <div>
-                        <button class="addNewProject" id="addNewProject">+</button>
-                    </div>
-                    
-                </div> */}
+
 
 
 

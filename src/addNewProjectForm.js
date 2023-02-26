@@ -1,35 +1,51 @@
 
+import ProjectItem from './projectMaker';
+
+
 export default function addNewProjectForm() {
-    const projectsDiv = document.getElementById('projectsDiv');
+    //const projectsContainer = document.getElementById('projectsContainer');
+    //console.log(array)
     
     const projectForm  = document.createElement('form');
+    projectForm.classList.add('projectForm');
+    projectForm.setAttribute('id','projectForm');
+
     const projectFormName = document.createElement('input');
     projectFormName.setAttribute('type','text');
     projectFormName.setAttribute('placeholder','Title');
+    projectFormName.setAttribute('id','projectFormName');
     
-    const projectButtonContainer = document.createElement('div');
     const addProject = document.createElement('button');
-    addProject.innerHTML = 'New';
+    addProject.classList.add('addProject');
+    addProject.setAttribute('id','addProject')
+    addProject.innerHTML= 'Add';
     addProject.addEventListener('click',function(e){
         e.preventDefault();
-        console.log('push project to an array and dom')
-        //push to an array
-        //push to DOM
+        console.log('newProjectpush')
+        // console.log(array)
+        // const newProject = new ProjectItem(projectFormName.value);
+        // array.push(newProject);
+
+       
+       
     });
+
+  
     const cancelProject = document.createElement('button');
+    cancelProject.classList.add('cancelProject')
+    cancelProject.setAttribute('id','cancelProject');
     cancelProject.innerHTML = 'Cancel';
     cancelProject.addEventListener('click',function(e){
         e.preventDefault();
-        console.log('close new project window');
-        projectForm.remove()
+        projectForm.remove();
     });
     
-    
+    const projectButtonContainer = document.createElement('div')
     projectForm.appendChild(projectFormName);
     projectButtonContainer.appendChild(addProject);
     projectButtonContainer.appendChild(cancelProject);
     projectForm.appendChild(projectButtonContainer);
     
-    projectsDiv.appendChild(projectForm);
+    projectsContainer.appendChild(projectForm);
         
     }

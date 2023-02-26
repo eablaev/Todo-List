@@ -6,6 +6,7 @@ import addNewProjectForm from './addNewProjectForm';
 import './style.css';
 import handleDetails from './handleDetails';
 import projectMaker from './projectMaker'
+import ProjectItem from './projectMaker';
 
 const todoArr = [
   
@@ -30,6 +31,9 @@ const todoArr = [
 
 const projectArray = [{
     title: 'Home'
+},
+{
+    title: 'Week'
 }
 ];
 displayTodos(todoArr);
@@ -88,6 +92,20 @@ form.addEventListener('submit', function(e){
     formContainer.classList.remove('show')
 
 });
+
+const projectsContainer = document.getElementById('projectsContainer');
+projectsContainer.addEventListener('click',function(e) {
+   
+    if(e.target.id == "addProject") {
+        console.log(e.target.id);
+        const projectFormName = document.getElementById('projectFormName')
+
+        const newProjectItem = new ProjectItem(projectFormName.value);
+        projectArray.push(newProjectItem);
+        console.log(projectArray)
+        displayProjects(projectArray)
+    }
+})
 
 // addNewProject.addEventListener('click',function() {
 //     addNewProjectForm()  
