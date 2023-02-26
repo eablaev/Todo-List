@@ -1,11 +1,10 @@
 import handleCheckBox from './handleCheckBox';
-import handleDetails from './handleDetails';
 
 
 import handleEdit from './handleEdit';
 
 
-export default function display (array) {
+export default function displayTodos (array) {
     console.log('inside Display')
     const todoContainer = document.getElementById('todoContainer');
     todoContainer.innerHTML = '';
@@ -39,7 +38,7 @@ export default function display (array) {
 
         const todoDetails = document.createElement('button');
         todoDetails.classList.add('todoDetails');
-        todoDetails.setAttribute('id','todoDetails')
+        todoDetails.setAttribute('id','todoDetails');
         todoDetails.innerHTML = 'Details';
         // todoDetails.addEventListener('click',function(e){
         //     handleDetails(e);

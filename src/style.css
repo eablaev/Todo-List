@@ -250,13 +250,15 @@ Header styling
 projectsDiv styling
 //////////////////////
 */
-.projectsDiv {
+.projectsContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     gap: 2rem;
     font-size: 1.3rem;
+    background-color: rgb(53, 156, 246);
+    height: 100%;
 }
 /* 
 ///////////////////////

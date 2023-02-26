@@ -1,9 +1,11 @@
 
 import TodoItem from './todoMaker';
-import display from './displayTodos';
-import handleDelete from './handleDelete';
+import displayTodos from './displayTodos';
+import displayProjects from './displayProjects';
+import addNewProjectForm from './addNewProjectForm';
 import './style.css';
 import handleDetails from './handleDetails';
+import projectMaker from './projectMaker'
 
 const todoArr = [
   
@@ -25,14 +27,21 @@ const todoArr = [
         priority:'high'
     }
 ];
-display(todoArr);
+
+const projectArray = [{
+    title: 'Home'
+}
+];
+displayTodos(todoArr);
+displayProjects(projectArray);
 
 
 const form = document.getElementById('form');
 const formContainer = document.getElementById('formContainer')
 const addNew = document.getElementById('addNewTodo');
 const closeForm = document.getElementById('closeForm');
-const todoDelete = document.querySelectorAll('#todoDelete');
+
+
 
 const todoContainer = document.getElementById('todoContainer');
 todoContainer.addEventListener('click',function(e){
@@ -44,7 +53,7 @@ todoContainer.addEventListener('click',function(e){
             return element.id == dataCellValue;
         });
         todoArr.splice(elementIndex,1)
-        display(todoArr);
+        displayTodos(todoArr);
     } else if (id == "todoDetails") {
         const dataCellValue = e.target.parentNode.parentNode.attributes[2].value; 
         const elementIndex = todoArr.findIndex(element => {
@@ -55,9 +64,10 @@ todoContainer.addEventListener('click',function(e){
     }
 });
 
-addNew.addEventListener('click', function(){
+addNew.addEventListener('click', function() {
     formContainer.classList.add('show');
 });
+
 
 closeForm.addEventListener('click', function(){
     formContainer.classList.remove('show');
@@ -74,9 +84,13 @@ form.addEventListener('submit', function(e){
     const todo = new TodoItem(title,description,dueDate,priority);
 
     todoArr.push(todo);
-    display(todoArr)
+    displayTodos(todoArr)
     formContainer.classList.remove('show')
 
 });
+
+// addNewProject.addEventListener('click',function() {
+//     addNewProjectForm()  
+// });
 
 
