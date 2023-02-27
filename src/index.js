@@ -1,41 +1,69 @@
 
 import TodoItem from './todoMaker';
+import ProjectItem from './projectMaker';
 import displayTodos from './displayTodos';
 import displayProjects from './displayProjects';
-import addNewProjectForm from './addNewProjectForm';
-import './style.css';
 import handleDetails from './handleDetails';
-import projectMaker from './projectMaker'
-import ProjectItem from './projectMaker';
+import './style.css';
 
-const todoArr = [
+
+const projectArray  = [
+    // homeProject
+    {
+        title: 'Home',
+        todosArr: [
   
-    {
-        title: 'Hello1',
-        description:"This is short description",
-        dueDate:'02/02/02',
-        priority:'high'
-    },
-    {
-        title: 'Hello2',
-        description:"This is short description",
-        dueDate:'02/02/02',
-        priority:'high'
-    }, {
-        title: 'Hello3',
-        description:"This is short description",
-        dueDate:'02/02/02',
-        priority:'high'
+            {
+                title: 'Hello1',
+                description:"This is short description",
+                dueDate:'02/02/02',
+                priority:'high'
+            },
+            {
+                title: 'Hello2',
+                description:"This is short description",
+                dueDate:'02/02/02',
+                priority:'high'
+            }, {
+                title: 'Hello3',
+                description:"This is short description",
+                dueDate:'02/02/02',
+                priority:'high'
+            }
+        ]
     }
 ];
 
-const projectArray = [{
-    title: 'Home'
-},
-{
-    title: 'Week'
-}
-];
+const todoArr = projectArray[0].todosArr;
+
+// const todoArr = [
+  
+//     {
+//         title: 'Hello1',
+//         description:"This is short description",
+//         dueDate:'02/02/02',
+//         priority:'high'
+//     },
+//     {
+//         title: 'Hello2',
+//         description:"This is short description",
+//         dueDate:'02/02/02',
+//         priority:'high'
+//     }, {
+//         title: 'Hello3',
+//         description:"This is short description",
+//         dueDate:'02/02/02',
+//         priority:'high'
+//     }
+// ];
+
+// const projectArray = [{
+//     title: 'Home'
+// },
+// {
+//     title: 'Week'
+// }
+// ];
 displayTodos(todoArr);
 displayProjects(projectArray);
 
@@ -97,18 +125,26 @@ const projectsContainer = document.getElementById('projectsContainer');
 projectsContainer.addEventListener('click',function(e) {
    
     if(e.target.id == "addProject") {
-        console.log(e.target.id);
+      
         const projectFormName = document.getElementById('projectFormName')
 
         const newProjectItem = new ProjectItem(projectFormName.value);
         projectArray.push(newProjectItem);
         console.log(projectArray)
         displayProjects(projectArray)
-    }
+        } else if(e.target.id == 'projectTitle') {
+            const name = e.target.innerHTML
+            console.log(name);
+            const index = projectArray.findIndex((element) => {
+                return element.title == name;
+            });
+            displayTodos(projectArray[index].todosArr)
+            console.log(projectArray[index].todosArr)
+            ///display todos witn the project by that index 
+        }
+
 })
 
-// addNewProject.addEventListener('click',function() {
-//     addNewProjectForm()  
-// });
+
 
 
