@@ -2,12 +2,12 @@
 import addNewProjectForm from './addNewProjectForm';
 
 export default function displayProjects(array) {
-    console.log('DisplayProjects');
     
-    
+    //reset
     const projectsContainer = document.getElementById('projectsContainer');
     projectsContainer.innerHTML = '';
-  
+    const projectFormContainer = document.getElementById('projectFormContainer');
+    projectFormContainer.innerHTML = '';
 
     array.forEach((element, index) => {
         const projectDiv = document.createElement('div');
@@ -20,21 +20,17 @@ export default function displayProjects(array) {
         projectTitle.innerHTML = element.title;
 
         projectDiv.appendChild(projectTitle);
-        projectsContainer.append(projectDiv);
-
-        
+        projectsContainer.append(projectDiv);   
     });
 
     const newProject = document.createElement('button');
-    newProject.classList.add('newProject');
-    newProject.setAttribute('id','newProject');
-    newProject.innerHTML = 'New';
+    newProject.classList.add('addNewProject');
+    newProject.setAttribute('id','addNewProject');
+    newProject.innerHTML = '<i class="fa-solid fa-plus">';
 
     projectsContainer.appendChild(newProject);
-    newProject.addEventListener('click', () => {
-        
-        addNewProjectForm();
-        
+    newProject.addEventListener('click', () => {  
+        addNewProjectForm(); 
     })
 }
 

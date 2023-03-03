@@ -1,11 +1,13 @@
 
-import ProjectItem from './projectMaker';
-
-
 export default function addNewProjectForm() {
-    //const projectsContainer = document.getElementById('projectsContainer');
-    //console.log(array)
     
+   
+    //const projectFormContainer = document.getElementById('projectFormContainer');
+    //projectFormContainer.innerHTML = '';
+
+    
+    
+
     const projectForm  = document.createElement('form');
     projectForm.classList.add('projectForm');
     projectForm.setAttribute('id','projectForm');
@@ -21,16 +23,9 @@ export default function addNewProjectForm() {
     addProject.innerHTML= 'Add';
     addProject.addEventListener('click',function(e){
         e.preventDefault();
-        console.log('newProjectpush')
-        // console.log(array)
-        // const newProject = new ProjectItem(projectFormName.value);
-        // array.push(newProject);
 
-       
-       
     });
 
-  
     const cancelProject = document.createElement('button');
     cancelProject.classList.add('cancelProject')
     cancelProject.setAttribute('id','cancelProject');
@@ -46,6 +41,10 @@ export default function addNewProjectForm() {
     projectButtonContainer.appendChild(cancelProject);
     projectForm.appendChild(projectButtonContainer);
     
-    projectsContainer.appendChild(projectForm);
+    projectFormContainer.appendChild(projectForm);
+  
+
+
+
         
     }

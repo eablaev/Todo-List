@@ -9,12 +9,12 @@ html {
 }
 /* 
 ////////////
-form styling
+Todo form styling
 ////////////
 */
 .formContainer{
     background-color: aquamarine;
-    display: none;  
+    display: inline-block; 
     position: absolute;
     top: 50%;
     left: 50%; 
@@ -39,30 +39,25 @@ form styling
     background-color: rgb(99, 91, 105);
     cursor: pointer;
 }
-
 .formContainer h2 {
     margin: 0;
     color: white;
     padding-left: .2rem;
 }
-
 .formUl{
     margin: 0;
     padding: 0;
     list-style: none; 
 }
-
 .formLi{
     padding:.2rem;
 }
-
 textarea{
     width: 300px;
     height: 100px;
     border: none;
     outline-style: none;
 }
-
 label {
     font-weight: 100;
 }
@@ -71,7 +66,6 @@ input{
     border: none;
     border-radius: 3;
 }
-
 .submit {
   border-color: rgb(95, 179, 10);
   box-shadow: none;
@@ -81,17 +75,14 @@ input{
   padding: 0 1rem;
   color:  rgb(95, 179, 10);
 }
-
 .submit:hover{
     color: white;
     background-color: rgb(95, 179, 10);
 }
-
 .formLi_footer {
    display: flex;
    justify-content: space-between;
 }
-
 .priority{
     border-radius: 2px;
     padding: 0;
@@ -99,7 +90,6 @@ input{
     color:  rgb(95, 179, 10);
     border-color: rgb(95, 179, 10);;
 }
-
 /* 
 ///////////////
 todoDiv styling   
@@ -124,7 +114,6 @@ todoDiv styling
     text-decoration: line-through;
     
 }
-
 .todoDivRight{
     display: flex;
     gap: 1rem;
@@ -134,23 +123,18 @@ todoDiv styling
     gap: 1rem;
     height: 2rem;
 }
-
 .todoDivCenter {
     flex:1;
 }
-
 .todoCheckMark {
     accent-color: rgb(172, 243, 172);
    border:1px solid #00f13c;
 }
-
-
 .todoPriority{
     background-color: red;
     height: 100%;
     width: 0.3rem;
 }
-
 .todoTitle,
 .todoDescription,
 .dueDate {
@@ -158,22 +142,16 @@ todoDiv styling
     font-size: 1rem;
     font-weight: 400;
 }
-
 .todoEdit {
-       
     height: 1rem;
     width: 1rem;
     cursor: pointer;
 }
-
 .todoDelete {
-    
     height: 1rem;
     width: 1rem;
     cursor: pointer;
-  
 }
-
 .todoEdit::before {
     font-family: "Font Awesome 5 Free";
     font-weight: 900; 
@@ -204,37 +182,37 @@ contentDiv styling
 .contentDiv{
     position: relative;
     border: 1px solid rgb(246, 14, 14);
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 60px auto 40px;
-    height: 80vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 .headerDiv {
-    grid-column: 1 / 3;
+  
     background-color: rgb(208, 217, 233);
     display: flex;
     align-items: center;
     
 }
-
 .middleDiv {
-    grid-column: 1 / 3;
-   display: flex;
-   justify-content: space-between;
-}
-
-
-.todoContainer{
    flex: 1;
- 
-   
+   display: grid;
+   grid-template-columns: 15% 1fr;
+   grid-template-rows: 1fr 15%;
+
+   border: 1px solid red;
 }
 
 .footerDiv {
-    grid-column: 1 / 3;
+    grid-column: 2/ 3;
+    grid-row: 2 /3;
     display: flex;
     justify-content: start;
     align-items: center;
+}
+
+.contentLeftDiv {
+    grid-column: 1/2;
+    grid-row: 1/3;
 }
 
 /* 
@@ -256,10 +234,55 @@ projectsDiv styling
     justify-content: start;
     align-items: center;
     gap: 2rem;
-    font-size: 1.3rem;
+    
+    
     background-color: rgb(53, 156, 246);
     height: 100%;
+    width: auto;
+
+    padding-top: 2rem;
 }
+.projectTitle {
+    cursor: pointer;
+    margin-top: 1rem;
+    font-weight: 200;
+    font-size: 1.4rem;
+   
+}
+.projectTitle:hover {
+    transform: scale(1.1);
+    font-weight: 400;
+}
+
+.projectFormContainer {
+   
+    max-width: 100%;
+
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+   
+}
+
+.addNewProject {
+   
+    margin: 1rem;
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 100px;
+    cursor: pointer;
+}
+.addNewProject:hover,
+.footerDiv button:hover {
+    transform: scale(1.2);
+    background-color: #b0e0bc;
+    border-color:  #93efaa;
+}
+
 /* 
 ///////////////////////
 detailsWindow styling
@@ -292,6 +315,12 @@ Footer styling
 //////////////////////
 */
 
+.footerDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .footerDiv button {
    
     margin: 1rem;
@@ -299,6 +328,8 @@ Footer styling
     width: 2rem;
     border-radius: 100px;
 }
+
+
 
 
 
