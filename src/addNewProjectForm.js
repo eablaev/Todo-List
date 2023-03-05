@@ -2,7 +2,7 @@
 export default function addNewProjectForm() {
     
    
-    //const projectFormContainer = document.getElementById('projectFormContainer');
+    const projectFormContainer = document.getElementById('projectFormContainer');
     //projectFormContainer.innerHTML = '';
 
     
@@ -35,7 +35,8 @@ export default function addNewProjectForm() {
         projectForm.remove();
     });
     
-    const projectButtonContainer = document.createElement('div')
+    const projectButtonContainer = document.createElement('div');
+    projectButtonContainer.classList.add('projectButtonContainer')
     projectForm.appendChild(projectFormName);
     projectButtonContainer.appendChild(addProject);
     projectButtonContainer.appendChild(cancelProject);
