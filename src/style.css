@@ -10,46 +10,52 @@ html {
 
 :root {
     --blue: #14EBE7;
-    --yellow :#EBE714;
-    --purple: #E714EB;
+    --yellow :#ebe98c;
+    --purple: #be09be;
+    --background: blanchedalmond;
 }
-/* 
-////////////
-Todo form styling
-////////////
-*/
-.formContainer{
-    background-color: aquamarine;
-    display: inline-block; 
-    position: absolute;
-    top: 50%;
-    left: 50%; 
-    transform: translate(-50%, -50%);
-    /* move me leftwards by 50% of my width, along the x-axis, and
-    move me upwards by 50% of my height, along the y-axis */
+                                                        /*     
+                                                        Todo form
+                                                        */
+.todoFormContainer{
+    background-color: var(--blue);
+    border-radius: 10px;
+    display: none; 
+    padding: 0.3rem;
 }
 
-.formContainer.show {
-    border: 1px solid black;
-    display: inline-block;  
+    
+.todoFormContainer.showTodoForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+
 }
 
 .formHeader {
-    background-color: rgb(99, 91, 105);
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    margin: 0.3rem;
+}
+.todoFormContainer h2 {
+    margin-left: .6rem;
+    color: white;
+    
+    padding: 0;
 }
 .closeForm {
     border-style: none;
-    color: white;
-    background-color: rgb(99, 91, 105);
+   background-color: inherit;
     cursor: pointer;
+    margin: .3rem;
 }
-.formContainer h2 {
-    margin: 0;
-    color: white;
-    padding-left: .2rem;
+.closeForm:hover {
+    color: red;
 }
+
 .formUl{
     margin: 0;
     padding: 0;
@@ -63,14 +69,25 @@ textarea{
     height: 100px;
     border: none;
     outline-style: none;
+    border-radius: 2px;
+    text-indent: .2rem;
+    font-family: inherit;
 }
 label {
     font-weight: 100;
+    margin: .3rem;
 }
 input{
     outline-style: none;
     border: none;
-    border-radius: 3;
+    border-radius: 2px;
+    text-indent: .2rem;
+    font-family: inherit;
+}
+.dueDateInput {
+
+    font-weight: 200;
+    
 }
 .submit {
   border-color: rgb(95, 179, 10);
@@ -99,6 +116,8 @@ input{
     color:  rgb(95, 179, 10);
     border-color: rgb(95, 179, 10);;
 }
+
+
 /* 
 ///////////////
 todoDiv styling   
@@ -107,6 +126,7 @@ todoDiv styling
 .todoDiv {
     background-color: var(--blue);
     display: flex;
+    width: 98%;
     justify-content: space-between;
     align-items: center;
     padding: 0.3rem;
@@ -225,6 +245,7 @@ todoDiv styling
     margin-left: 0.3rem;
     font-size: 1rem;
     font-weight: 200;
+    width: 3rem;
 }
 .dueDate {
     align-self: center;
@@ -250,31 +271,35 @@ todoDiv styling
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
 }
+.todoEdit:hover::before { 
+    color: var(--yellow);
+}
+.todoDelete:hover::before {
+    color: red;
+}
 .todoDelete::before {
     font-family: "Font Awesome 5 Free";
     font-weight: 300; 
     content: "\f2ed";
     display: inline-block;
-    color: red;
+    color: var(--purple);
     font-style: normal;
     font-variant: normal;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
 }
-                                                                        /* 
-                                                                        ///////////////////////
-                                                                        contentDiv styling
-                                                                        //////////////////////
-                                                                        */
+                                                                /*
+                                                                contentDiv styling
+                                                                */
 .contentDiv{
-    position: relative;
+    
     height: 100vh;
     display: flex;
     flex-direction: column;
 }
 .headerDiv {
   
-    background-color: rgb(208, 217, 233);
+    background-color: var(--background);
     display: flex;
     align-items: center;
     
@@ -287,7 +312,17 @@ todoDiv styling
 
 }
 
+.todoContainer {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+   
+}
+
 .addNewTodoContainer {
+    /* position: relative; */
     grid-column: 2/ 3;
     grid-row: 2 /3;
     display: flex;
@@ -309,9 +344,7 @@ Header styling
     padding: .3rem;
 }
                                                             /* 
-                                                            ///////////////////////
-                                                            projectsDiv styling
-                                                            //////////////////////
+                                                            projectsContainer
                                                             */
 .projectsContainer {
     display: flex;
@@ -319,9 +352,7 @@ Header styling
     justify-content: start;
     align-items: center;
     gap: 2rem;
-    
-    
-    background-color: rgb(53, 156, 246);
+    background-color: var(--yellow);
     height: 100%;
     width: auto;
 
@@ -371,10 +402,11 @@ Header styling
     background-color: bisque;
 }
 .addNewProject:hover,
-.footerDiv button:hover {
+.addNewTodo:hover {
     transform: scale(1.2);
     background-color: #b0e0bc;
     border-color:  #93efaa;
+    cursor: pointer;
 }
 
 .projectButtonContainer{
@@ -409,9 +441,7 @@ Header styling
 }
 
                                                             /* 
-                                                            ///////////////////////
                                                             detailsWindow styling
-                                                            //////////////////////
                                                             */
 .detailsWindow{
     background-color: aquamarine;
@@ -446,7 +476,14 @@ Footer styling
     align-items: center;
 }
 
-.footerDiv button {
+.addNewTodoDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.addNewTodo {
    
     margin: 1rem;
     height: 3rem;
@@ -455,6 +492,23 @@ Footer styling
     border-style: hidden;
     background-color: bisque;
 }
+
+.addNewTodo::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900; 
+    content: '\2b';
+    display: inline-block;
+    color: var(--purple);
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+.addNewTodo::after:hover {
+    scale: 1.6;
+}
+
+
 
 
 

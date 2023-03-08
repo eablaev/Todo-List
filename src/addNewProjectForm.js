@@ -1,30 +1,28 @@
 
 export default function addNewProjectForm() {
-    
-   
-    const projectFormContainer = document.getElementById('projectFormContainer');
+    const projectsContainer = document.getElementById('projectsContainer');
+
+    const projectFormContainer = document.createElement('div');
+    projectFormContainer.classList.add('projectFormContainer');
+    projectFormContainer.id = 'projectFormContainer';
     //projectFormContainer.innerHTML = '';
-
-    
-    
-
     const projectForm  = document.createElement('form');
     projectForm.classList.add('projectForm');
     projectForm.setAttribute('id','projectForm');
 
     const projectFormName = document.createElement('input');
     projectFormName.setAttribute('type','text');
-    projectFormName.setAttribute('placeholder','Title');
-    projectFormName.setAttribute('id','projectFormName');
+    projectFormName.placeholder = 'Title'
+    projectFormName.classList.add('projectFormName');
+    projectFormName.id = 'projectFormName';
+    projectFormName.required = true;
     
     const addProject = document.createElement('button');
     addProject.classList.add('addProject');
     addProject.setAttribute('id','addProject')
+    addProject.type = 'submit';
     addProject.innerHTML= 'Add';
-    addProject.addEventListener('click',function(e){
-        e.preventDefault();
-
-    });
+    
 
     const cancelProject = document.createElement('button');
     cancelProject.classList.add('cancelProject')
@@ -43,9 +41,6 @@ export default function addNewProjectForm() {
     projectForm.appendChild(projectButtonContainer);
     
     projectFormContainer.appendChild(projectForm);
-  
+    projectsContainer.appendChild(projectFormContainer);
 
-
-
-        
     }

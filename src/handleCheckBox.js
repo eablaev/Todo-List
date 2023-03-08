@@ -1,13 +1,16 @@
-export default function handleCheckBox() {
-   
-    const todoDiv = document.getElementById('todoDiv');
-    const checkBox = document.getElementById('todoCheckMark');
-    
-    if(checkBox.checked) {
-        todoDiv.classList.add('checked');
-    } else if (!checkBox.checked) {
-        todoDiv.classList.remove('checked');
-    }
+export default function handleCheckBox(dataCellValue) {
+    const dataCell = '[data-cell="'+dataCellValue+'"]'
+console.log(dataCell);
+
+const todoDiv = document.querySelector(dataCell)
+console.log(todoDiv)
+if(todoDiv.classList.contains('checked')){
+    todoDiv.classList.remove('checked')
+} else if(!todoDiv.classList.contains('checked')) {
+    todoDiv.classList.add('checked')
+}
+
+
   
     
 }

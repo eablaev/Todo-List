@@ -1,12 +1,13 @@
-import handleCheckBox from './handleCheckBox';
-
 
 import handleEdit from './handleEdit';
-
+import addNewTodoForm from './addNewTodoForm copy'
+import {format} from 'date-fns';
 
 export default function displayTodos (array) {
     console.log('inside Display')
     const todoContainer = document.getElementById('todoContainer');
+    const addNewTodoDiv = document.createElement('div');
+    addNewTodoDiv.classList.add('addNewTodoDiv');
     todoContainer.innerHTML = '';
 
     array.forEach((element,index) => {
@@ -26,7 +27,7 @@ export default function displayTodos (array) {
         todoCheckMark.setAttribute('type','checkbox');
         todoCheckMark.setAttribute('id','todoCheckMark');
         todoCheckMark.classList.add('todoCheckMark');
-        todoCheckMark.addEventListener('change',handleCheckBox);    
+        // todoCheckMark.addEventListener('change',handleCheckBox);    
         
         const todoTitle = document.createElement('h5');
         todoTitle.classList.add('todoTitle');
@@ -46,7 +47,10 @@ export default function displayTodos (array) {
 
         const dueDate = document.createElement('h6');
         dueDate.classList.add('dueDate');
-        dueDate.innerHTML = element.dueDate;
+        dueDate.innerHTML = format(new Date(element.dueDate), 'MMM dd')
+        console.log(format(new Date(2014, 1, 11), 'MM/dd/yyyy'))
+
+
 
         const todoEdit = document.createElement('div');
         todoEdit.classList.add('todoEdit');
@@ -56,10 +60,7 @@ export default function displayTodos (array) {
         todoDelete.classList.add('todoDelete');
         todoDelete.setAttribute('id','todoDelete');
        
-       
-
-   
-        
+    
 
         /////////////////////////
         // Creating todo layout//
@@ -94,5 +95,16 @@ export default function displayTodos (array) {
         todoContainer.appendChild(todoDiv);
         
     });
+    const addNewTodo = document.createElement('button');
+    addNewTodo.classList.add('addNewTodo');
+    addNewTodo.setAttribute('id','addNewTodo');
+    
+
+    todoContainer.appendChild(addNewTodoDiv);
+    addNewTodoDiv.appendChild(addNewTodo)
+    addNewTodo.addEventListener('click', () => {  
+        addNewTodoForm(); 
+    });
+
 }
 

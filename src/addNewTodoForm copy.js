@@ -1,7 +1,11 @@
 export default function addNewTodoForm() {
  // Create the container element
-const formContainer = document.getElementById('formContainer');
-formContainer.innerHTML ='';
+ console.log('addNewProjectForm')
+const todoFormContainer = document.createElement('div');
+const todoContainer = document.getElementById('todoContainer')
+todoFormContainer.classList.add('todoFormContainer');
+todoFormContainer.id = 'todoFormContainer';
+todoFormContainer.innerHTML ='';
 
 // Create the header element
 const formHeader = document.createElement('div');
@@ -17,8 +21,9 @@ closeButton.classList.add('closeForm');
 closeButton.id = 'closeForm';
 closeButton.textContent = 'X';
 closeButton.addEventListener('click', function(e){
-    e.target.parentNode.parentNode.innerHTML = ''
-   
+    e.target.parentNode.parentNode.classList.remove('showTodoForm')
+    e.target.parentNode.parentNode.innerHTML = '';
+     
 });
 
 // Create the form element
@@ -64,13 +69,13 @@ const dueDateField = document.createElement('li');
 dueDateField.classList.add('formLi');
 
 const dueDateLabel = document.createElement('label');
-dueDateLabel.setAttribute('for', 'dueDate');
+dueDateLabel.setAttribute('for', 'dueDateInput');
 dueDateLabel.textContent = 'Due Date';
 
 const dueDateInput = document.createElement('input');
 dueDateInput.type = 'date';
-dueDateInput.classList.add('dueDate');
-dueDateInput.id = 'dueDate';
+dueDateInput.classList.add('dueDateInput');
+dueDateInput.id = 'dueDateInput';
 dueDateInput.required = true;
 
 // Create the priority field element
@@ -108,10 +113,10 @@ submitButton.id = 'submit';
 submitButton.classList.add('submit');
 submitButton.textContent = 'ADD';
 
-
 //main form
-formContainer.appendChild(formHeader);
-formContainer.appendChild(form);
+
+todoFormContainer.appendChild(formHeader);
+todoFormContainer.appendChild(form);
 
 formHeader.appendChild(heading);
 formHeader.appendChild(closeButton);
@@ -141,7 +146,9 @@ prioritySelect.appendChild(medOption);
 prioritySelect.appendChild(highOption);
 priorityDiv.appendChild(prioritySelect);
 
-priorityField.appendChild(submitButton)
-    
+priorityField.appendChild(submitButton);
+
+todoContainer.appendChild(todoFormContainer) 
+
 }
 

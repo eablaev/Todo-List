@@ -4,9 +4,8 @@ import ProjectItem from './projectMaker';
 import displayTodos from './displayTodos';
 import displayProjects from './displayProjects';
 import handleDetails from './handleDetails';
-import addNewTodoForm from './addNewTodoForm copy'
+import handleCheckBox from './handleCheckBox';
 import './style.css';
-
 
 const projectArray  = [
     // homeProject
@@ -17,7 +16,7 @@ const projectArray  = [
             {
                 title: 'Hello1',
                 description:"This is short description",
-                dueDate:'02/02/02',
+                dueDate:'04/02/02',
                 priority:'high'
             },
             {
@@ -28,7 +27,7 @@ const projectArray  = [
             }, {
                 title: 'Hello3',
                 description:"This is short description",
-                dueDate:'02/02/02',
+                dueDate:'08/02/02',
                 priority:'high'
             }
         ]
@@ -38,29 +37,31 @@ const projectArray  = [
         todosArr: []
     }
 ];
-
 const todoArr = projectArray[0].todosArr;
-
 let activeProject = 'Home';
+
 
 displayTodos(todoArr);
 displayProjects(projectArray);
 
 
-const todoContainer = document.getElementById('todoContainer');
-const addNewTodo = document.getElementById('addNewTodo');
-const projectsContainer = document.getElementById('projectsContainer');
-
 todoContainer.addEventListener('click',function(e){
     const id = e.target.id;
     
     if(id == 'todoDelete') {
+
         const dataCellValue = e.target.parentNode.parentNode.attributes[2].value; 
-        const elementIndex = todoArr.findIndex(element => {
+        const activeProjectIndex = projectArray.findIndex((element) => {
+            return element.title == activeProject;
+        });
+        //find index of the element to be delited within the active project
+        const activeTodosArray = projectArray[activeProjectIndex].todosArr;
+        const elementIndex = activeTodosArray.findIndex(element => {
             return element.id == dataCellValue;
         });
-        todoArr.splice(elementIndex,1)
-        displayTodos(todoArr);
+        activeTodosArray.splice(elementIndex,1);
+        displayTodos(activeTodosArray);
+
     } else if (id == "todoDetails") {
         const dataCellValue = e.target.parentNode.parentNode.attributes[2].value; 
         const elementIndex = todoArr.findIndex(element => {
@@ -68,60 +69,36 @@ todoContainer.addEventListener('click',function(e){
         });
         const arrayElement = todoArr[elementIndex];
         handleDetails(arrayElement);
-    }
-});
-
-addNewTodo.addEventListener('click', function() {
-
-    addNewTodoForm();
-    
-    const form = document.getElementById('todoForm');
-    console.log(form)
-    form.addEventListener('submit', function(e){
-        e.preventDefault();
+    } else if (id == 'todoCheckMark'){
+        const dataCellValue = e.target.parentNode.parentNode.attributes[2].value; 
+        console.log(e.target.parentNode.parentNode.attributes[2])
+        handleCheckBox(dataCellValue)
+    } else if (id == 'addNewTodo') { 
+        todoFormContainer.classList.add('showTodoForm');
+        const form = document.getElementById('todoForm');
+        form.addEventListener('submit', function(e){
+            e.preventDefault();
        
-       console.log('add')
+            const title = document.getElementById('title').value;
+            const description = document.getElementById('description').value;
+            const dueDate = document.getElementById('dueDateInput').value;
 
-        const title = document.getElementById('title').value;
-        const description = document.getElementById('description').value;
-        const dueDate = document.getElementById('dueDate').value;
-
-        const todo = new TodoItem(title,description,dueDate,priority);
+            const todo = new TodoItem(title,description,dueDate,priority);
        
-        const index = projectArray.findIndex((element) => {
+            const index = projectArray.findIndex((element) => {
             return element.title == activeProject;
-        });
+            });
        projectArray[index].todosArr.push(todo);
        displayTodos(projectArray[index].todosArr)
        e.target.parentNode.innerHTML = ''
-    });
+        });
+    };
 });
 
-projectFormContainer.addEventListener('click',function(e) {
-    if(e.target.id == "addProject") {
-       
-        const projectFormName = document.getElementById('projectFormName');
-        
-        const newProjectItem = new ProjectItem(projectFormName.value);
-
-        projectArray.push(newProjectItem);
-        console.log(projectArray)
-        displayProjects(projectArray)
-        } else if(e.target.id == 'projectTitle') {
-            const name = e.target.innerHTML;
-        
-            activeProject = name;
-            
-            const index = projectArray.findIndex((element) => {
-                return element.title == name;
-            });
-            displayTodos(projectArray[index].todosArr)
-            
-        }
-});
-
+///Switching between projects + added new project
 projectsContainer.addEventListener('click', function(e) {
-    if(e.target.id == 'projectTitle') {
+    const id = e.target.id;
+    if(id == 'projectTitle') {
         const name = e.target.innerHTML;
     
         activeProject = name;
@@ -130,9 +107,18 @@ projectsContainer.addEventListener('click', function(e) {
             return element.title == name;
         });
         displayTodos(projectArray[index].todosArr)
-        
-    }
+    } else if (id == 'addNewProject') {
+        const projectForm = document.getElementById('projectForm');
+        projectForm.addEventListener('submit',function(e) {
+            e.preventDefault(); 
+             const projectFormName = document.getElementById('projectFormName')
+             const project = new ProjectItem(projectFormName.value);
+             projectArray.push(project);
+             displayProjects(projectArray)      
+        });
+    };
 });
+
 
 
 
