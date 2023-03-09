@@ -23,12 +23,12 @@ const projectArray  = [
                 title: 'Hello2',
                 description:"This is short description",
                 dueDate:'02/02/02',
-                priority:'high'
+                priority:'low'
             }, {
                 title: 'Hello3',
                 description:"This is short description",
                 dueDate:'08/02/02',
-                priority:'high'
+                priority:'med'
             }
         ]
     },
@@ -82,8 +82,10 @@ todoContainer.addEventListener('click',function(e){
             const title = document.getElementById('title').value;
             const description = document.getElementById('description').value;
             const dueDate = document.getElementById('dueDateInput').value;
+            const priority = document.getElementById('priority').value
 
             const todo = new TodoItem(title,description,dueDate,priority);
+            console.log(todo)
        
             const index = projectArray.findIndex((element) => {
             return element.title == activeProject;

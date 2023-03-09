@@ -22,6 +22,13 @@ export default function displayTodos (array) {
         const todoPriority = document.createElement('div');
         todoPriority.setAttribute('id', 'todoPriority');
         todoPriority.classList.add('todoPriority');
+        if (element.priority == 'low') {
+            todoPriority.classList.add('low')
+        } else if (element.priority == 'med') {
+            todoPriority.classList.add('med')
+        } else if (element.priority == 'high') {
+            todoPriority.classList.add('high')
+        }
 
         const todoCheckMark = document.createElement('input');
         todoCheckMark.setAttribute('type','checkbox');
@@ -48,7 +55,9 @@ export default function displayTodos (array) {
         const dueDate = document.createElement('h6');
         dueDate.classList.add('dueDate');
         dueDate.innerHTML = format(new Date(element.dueDate), 'MMM dd')
-        console.log(format(new Date(2014, 1, 11), 'MM/dd/yyyy'))
+        console.log(format(new Date(2014, 1, 11), 'MM/dd/yyyy'));
+
+        //////write priority logic
 
 
 
