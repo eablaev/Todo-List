@@ -297,6 +297,9 @@ todoDiv styling
     display: flex;
     flex-direction: column;
 }
+.contentDiv.blur {
+    filter: blur(10px);
+}
 .headerDiv {
   
     background-color: var(--background);
@@ -348,7 +351,7 @@ todoDiv styling
     gap: 2rem;
     background-color: var(--yellow);
     height: 100%;
-    width: auto;
+    width: 100%;
 
     padding-top: 2rem;
 }
@@ -364,25 +367,23 @@ todoDiv styling
     font-weight: 400;
     
 }
-
+                                                            /* projectForm */
 .projectFormContainer {
    
     max-width: 100%;
 
-    position: absolute;
-    top: 50%;
-    left: 50%; 
-    position: absolute;
-    top: 50%;
-    left: 50%; 
-    transform: translate(-50%, -50%);
-
-    background-color: #00f13c;
+    background-color: var(--yellow);
     border-radius: 1px;
 }
 
 .projectForm {
-    padding: .2rem;
+   
+
+    
+}
+.projectFormName {
+margin: 0.1rem;
+width: 8rem;
 }
 
 .addNewProject {
@@ -418,6 +419,7 @@ todoDiv styling
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: .3rem;
 }
 .addProject {
     border-color: rgb(95, 179, 10);
@@ -425,7 +427,7 @@ todoDiv styling
     border-style: none;
     border: 1px solid  rgb(95, 179, 10);
     border-radius: 2px;
-    padding: 0 1rem;
+    padding: 0 .5rem;
     color:  rgb(95, 179, 10);
   }
   .cancelProject {
@@ -434,7 +436,7 @@ todoDiv styling
       border-style: none;
       border: 1px solid  rgb(95, 179, 10);
       border-radius: 2px;
-      padding: 0 1rem;
+      padding: 0 .5rem;
       color:  rgb(95, 179, 10);
     }
 
@@ -446,8 +448,9 @@ todoDiv styling
 }
 
                                                        /* detailsWindow styling */
-.detailsWindow{
-    background-color: aquamarine;
+.detailsWindow,
+.editWindow{
+    background-color: var(--blue);
     display: none;  
     position: absolute;
     top: 50%;
@@ -456,9 +459,15 @@ todoDiv styling
     top: 50%;
     left: 50%; 
     transform: translate(-50%, -50%);
+
+    padding: 0.3rem;
+    border-radius: 4px;
+
+    width: 50vw;
 }
-.detailsWindow.show{
-    border: 1px solid black;
+.detailsWindow.show,
+.editWindow.show{
+    
     display: inline-block;  
 }
 
@@ -466,6 +475,36 @@ todoDiv styling
     display: flex;
     justify-content: space-between;
 }
+
+.closeDetails {
+    cursor: pointer;
+}
+.closeDetails:hover {
+    color: red;
+}
+.detailsTitle {
+    font-family: inherit;
+    font-weight: 400;
+}
+.detailsDescription,
+.detailsDueDate  {
+    font-weight: 200;
+} 
+.detailsPriority {
+    font-weight: 400;
+    text-transform: uppercase;
+}
+.detailsPriority.low {
+    color: green;
+    
+}
+.detailsPriority.med {
+    color: blue;
+}
+.detailsPriority.high {
+    color: red;
+}
+
 
                                                             /* Footer styling*/
 

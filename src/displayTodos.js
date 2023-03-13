@@ -34,43 +34,41 @@ export default function displayTodos (array) {
         todoCheckMark.setAttribute('type','checkbox');
         todoCheckMark.setAttribute('id','todoCheckMark');
         todoCheckMark.classList.add('todoCheckMark');
-        // todoCheckMark.addEventListener('change',handleCheckBox);    
+      
         
         const todoTitle = document.createElement('h5');
         todoTitle.classList.add('todoTitle');
         todoTitle.innerHTML = element.title;
 
-        // const todoDescription  = document.createElement('h6');
-        // todoDescription.classList.add('todoDescription');
-        // todoDescription.innerHTML = element.description;
+        
 
         const todoDetails = document.createElement('button');
         todoDetails.classList.add('todoDetails');
         todoDetails.setAttribute('id','todoDetails');
         todoDetails.innerHTML = 'Details';
-        // todoDetails.addEventListener('click',function(e){
-        //     handleDetails(e);
-        // });
+        
 
         const dueDate = document.createElement('h6');
         dueDate.classList.add('dueDate');
-        dueDate.innerHTML = format(new Date(element.dueDate), 'MMM dd')
-        console.log(format(new Date(2014, 1, 11), 'MM/dd/yyyy'));
+        console.log(element.dueDate);
+        const date = new Date(element.dueDate)
+        const newDate = new Date(date.valueOf() + date.getTimezoneOffset() * 60 * 1000);
+        dueDate.innerHTML = format(newDate, 'MM/dd/yy')
+      
+        
 
         //////write priority logic
 
-
-
         const todoEdit = document.createElement('div');
         todoEdit.classList.add('todoEdit');
-        todoEdit.addEventListener('click',handleEdit);
+        todoEdit.id = 'todoEdit';
+      
 
         const todoDelete = document.createElement('div');
         todoDelete.classList.add('todoDelete');
-        todoDelete.setAttribute('id','todoDelete');
+        todoDelete.id ='todoDelete';
        
     
-
         /////////////////////////
         // Creating todo layout//
         ////////////////////////

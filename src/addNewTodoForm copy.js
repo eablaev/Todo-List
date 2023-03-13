@@ -1,6 +1,5 @@
 export default function addNewTodoForm() {
  // Create the container element
- console.log('addNewProjectForm')
 const todoFormContainer = document.createElement('div');
 const todoContainer = document.getElementById('todoContainer')
 todoFormContainer.classList.add('todoFormContainer');
