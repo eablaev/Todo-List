@@ -447,7 +447,7 @@ width: 8rem;
     background-color: rgb(95, 179, 10);
 }
 
-                                                       /* detailsWindow styling */
+                                                       /* details and Edit Window styling */
 .detailsWindow,
 .editWindow{
     background-color: var(--blue);
@@ -475,12 +475,32 @@ width: 8rem;
     display: flex;
     justify-content: space-between;
 }
+.closeEdit {
+    display: flex;
+    justify-content: end;
+}
 
-.closeDetails {
+.closeDetails,
+.closeEdit {
     cursor: pointer;
 }
-.closeDetails:hover {
+.closeDetails:hover,
+.closeEdit:hover {
     color: red;
+}
+
+.confirmEdit{
+    border: 1px solid var(--background);
+    background-color: var(--yellow);
+    color: var(--purple);
+    border-radius: 3px;
+    display: inline-block;
+    padding: .2rem;
+}
+.confirmEdit:hover {
+    background-color: var(--purple);
+    color: var(--yellow);
+
 }
 .detailsTitle {
     font-family: inherit;

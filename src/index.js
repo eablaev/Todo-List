@@ -74,6 +74,8 @@ todoContainer.addEventListener('click',function(e){
         
         contentDiv.classList.add('blur')
     } else if(id == "todoEdit")  {
+        //delete edit window 
+        
         const dataCellValue = e.target.parentNode.parentNode.attributes[2].value; 
         const activeProjectIndex = projectArray.findIndex((element) => {
             return element.title == activeProject;
@@ -92,7 +94,8 @@ todoContainer.addEventListener('click',function(e){
             const description = document.getElementById('editDescription').innerHTML;
             const dueDate = document.getElementById('editDueDate').value;
             console.log(dueDate)
-            const priority = document.getElementById('editPriority').innerHTML;
+            const priority = document.getElementById('editPrioritySelect').value;
+            console.log(priority)
 
             
             //2.make new todoItem
@@ -101,7 +104,10 @@ todoContainer.addEventListener('click',function(e){
             //3. replace todo item with the one it had before
             activeTodosArray.splice(elementIndex,1,editedTodo)
             //4. display todos
-            displayTodos(activeTodosArray)
+            displayTodos(activeTodosArray);
+            editWindow.classList.remove('show');
+            editWindow.remove()
+            contentDiv.classList.remove('blur');    
         })
 
     } else if (id == 'todoCheckMark'){

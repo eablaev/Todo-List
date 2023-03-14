@@ -13,7 +13,7 @@ export default function handleDetails(element) {
     closeDetails.addEventListener('click', function(){
         detailsWindow.classList.remove('show');
         contentDiv.classList.remove('blur')
-    })
+    });
 
     const detailsHeader = document.createElement('div');
     detailsHeader.classList.add('detailsHeader');
