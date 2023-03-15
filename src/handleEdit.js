@@ -23,9 +23,9 @@ export default function handleEdit(element) {
     editDescription.innerHTML = element.description;
 
     const editDueDate = document.createElement('input');
-    editDueDate.classList.add = 'editDueDate';
     editDueDate.type = 'date'
     editDueDate.id = 'editDueDate';
+    editDueDate.classList.add('editDueDate')
     
     // editDueDate.defaultValue = format(new Date(element.dueDate), 'yyyy-mm-dd')
     editDueDate.defaultValue = element.dueDate

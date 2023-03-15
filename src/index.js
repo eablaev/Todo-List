@@ -15,26 +15,26 @@ const projectArray  = [
         todosArr: [
   
             {
-                title: 'Hello1',
+                title: 'Read 10 pages',
                 description:"This is short description",
-                dueDate:'1989-07-24',
+                dueDate:'2023-07-24',
                 priority:'high'
             },
             {
-                title: 'Hello2',
+                title: 'Practice Spanish',
                 description:"This is short description",
-                dueDate:'2001-01-01',
+                dueDate:'2023-02-11',
                 priority:'low'
             }, {
-                title: 'Hello3',
+                title: 'Code',
                 description:"This is short description",
-                dueDate:'04-03-2001',
+                dueDate:'2023-03-23',
                 priority:'med'
             }
         ]
     },
     {
-        title: 'ProjectOne',
+        title: 'ProjectOne is an extremely long ass name',
         todosArr: []
     }
 ];
@@ -42,7 +42,6 @@ const todoArr = projectArray[0].todosArr;
 let activeProject = 'Home';
 
 const contentDiv = document.getElementById('contentDiv')
-
 
 displayTodos(todoArr);
 displayProjects(projectArray);
@@ -73,9 +72,7 @@ todoContainer.addEventListener('click',function(e){
         handleDetails(arrayElement);
         
         contentDiv.classList.add('blur')
-    } else if(id == "todoEdit")  {
-        //delete edit window 
-        
+    } else if(id == "todoEdit") {
         const dataCellValue = e.target.parentNode.parentNode.attributes[2].value; 
         const activeProjectIndex = projectArray.findIndex((element) => {
             return element.title == activeProject;
@@ -89,7 +86,7 @@ todoContainer.addEventListener('click',function(e){
         handleEdit(todoItem);
         contentDiv.classList.add('blur')
         confirmEdit.addEventListener('click', function() {
-            //1. tke values from each field
+            //1. take values from each field
             const title = document.getElementById('editTitle').innerHTML;
             const description = document.getElementById('editDescription').innerHTML;
             const dueDate = document.getElementById('editDueDate').value;
@@ -97,20 +94,23 @@ todoContainer.addEventListener('click',function(e){
             const priority = document.getElementById('editPrioritySelect').value;
             console.log(priority)
 
-            
             //2.make new todoItem
             const editedTodo = new TodoItem(title,description,dueDate,priority);
-            console.log(editedTodo)
+            console.log(editedTodo);
+
             //3. replace todo item with the one it had before
-            activeTodosArray.splice(elementIndex,1,editedTodo)
+            activeTodosArray.splice(elementIndex,1,editedTodo);
+
             //4. display todos
             displayTodos(activeTodosArray);
+
+            //5. clean up
             editWindow.classList.remove('show');
             editWindow.remove()
             contentDiv.classList.remove('blur');    
-        })
+        });
 
-    } else if (id == 'todoCheckMark'){
+    } else if (id == 'todoCheckMark') {
         const dataCellValue = e.target.parentNode.parentNode.attributes[2].value; 
         console.log(e.target.parentNode.parentNode.attributes[2])
         handleCheckBox(dataCellValue)

@@ -16,7 +16,7 @@ export default function displayProjects(array) {
 
     array.forEach((element, index) => {
         const projectDiv = document.createElement('div');
-        projectDiv.classList.add('projectsDiv');
+        projectDiv.classList.add('projectDiv');
         projectDiv.setAttribute('id','projectDiv');
 
         const projectTitle = document.createElement('h2');

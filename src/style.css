@@ -134,8 +134,9 @@ todoDiv styling
 }
 .todoDiv:hover {
     transform: scale(1.01);
-    box-shadow: 2px 2px 2px var(--blue);  
+    box-shadow: 0px 0px 2px var(--blue);  
 }
+
 .todoDiv.checked {
     filter: blur(1px);
     color: rgb(120, 125, 144);
@@ -240,6 +241,7 @@ todoDiv styling
 .todoPriority {
     background-color: red;
 }
+
 .todoTitle,
 .todoDescription,
 .dueDate {
@@ -248,6 +250,9 @@ todoDiv styling
     font-size: 1rem;
     font-weight: 200;
     width: 3rem;
+}
+.todoTitle {
+    width: 100%;
 }
 .dueDate {
     align-self: center;
@@ -355,6 +360,12 @@ todoDiv styling
 
     padding-top: 2rem;
 }
+.projectDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .4rem;
+}
 .projectTitle {
     cursor: pointer;
     margin-top: 1rem;
@@ -364,7 +375,7 @@ todoDiv styling
 }
 .projectTitle:hover {
     transform: scale(1.1);
-    font-weight: 400;
+    font-weight: 200;
     
 }
                                                             /* projectForm */
@@ -459,18 +470,14 @@ width: 8rem;
     top: 50%;
     left: 50%; 
     transform: translate(-50%, -50%);
-
     padding: 0.3rem;
     border-radius: 4px;
-
     width: 50vw;
 }
 .detailsWindow.show,
-.editWindow.show{
-    
+.editWindow.show{  
     display: inline-block;  
 }
-
 .detailsHeader{
     display: flex;
     justify-content: space-between;
@@ -479,7 +486,6 @@ width: 8rem;
     display: flex;
     justify-content: end;
 }
-
 .closeDetails,
 .closeEdit {
     cursor: pointer;
@@ -488,14 +494,27 @@ width: 8rem;
 .closeEdit:hover {
     color: red;
 }
+.editPrioritySelect {
+    margin: .3rem;
+    font-family: inherit;
+    font-weight: 200;
+    border: none;
+}
+.editDueDate {
+   
+    font-family: inherit;
+    font-weight: 200;
 
+}
 .confirmEdit{
+    
     border: 1px solid var(--background);
     background-color: var(--yellow);
     color: var(--purple);
     border-radius: 3px;
     display: inline-block;
     padding: .2rem;
+    float: right;
 }
 .confirmEdit:hover {
     background-color: var(--purple);
