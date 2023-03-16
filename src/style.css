@@ -366,6 +366,9 @@ todoDiv styling
     align-items: center;
     padding: .4rem;
 }
+.activeProject {
+    text-decoration: underline;
+}
 .projectTitle {
     cursor: pointer;
     margin-top: 1rem;

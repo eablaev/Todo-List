@@ -8,7 +8,11 @@ import handleCheckBox from './handleCheckBox';
 import './style.css';
 import handleEdit from './handleEdit';
 
-const projectArray  = [
+let projectArray = [];
+//if no data in local storage asssign dummy data to projectArray
+//if there is data, parse it to the projectArray
+ if (!localStorage.getItem('projectArray')) {
+   projectArray = [
     // homeProject
     {
         title: 'Home',
@@ -20,12 +24,7 @@ const projectArray  = [
                 dueDate:'2023-07-24',
                 priority:'high'
             },
-            {
-                title: 'Practice Spanish',
-                description:"This is short description",
-                dueDate:'2023-02-11',
-                priority:'low'
-            }, {
+           {
                 title: 'Code',
                 description:"This is short description",
                 dueDate:'2023-03-23',
@@ -34,18 +33,29 @@ const projectArray  = [
         ]
     },
     {
-        title: 'ProjectOne is an extremely long ass name',
+        title: 'projectOne',
         todosArr: []
     }
 ];
+   localStorage.setItem('projectArray', JSON.stringify(projectArray));
+  } else if (localStorage.getItem('projectArray')) {
+  projectArray = JSON.parse(localStorage.getItem('projectArray'));
+  }
 const todoArr = projectArray[0].todosArr;
 let activeProject = 'Home';
+
+///local storage function
+function pushToArrayInLocalStorage(array) {
+   
+    localStorage.setItem('projectArray', JSON.stringify(array)); 
+  }
 
 const contentDiv = document.getElementById('contentDiv')
 
 displayTodos(todoArr);
 displayProjects(projectArray);
-
+const homeProject = document.querySelector('.projectTitle');
+homeProject.classList.add('activeProject')
 
 todoContainer.addEventListener('click',function(e){
     const id = e.target.id;
@@ -61,6 +71,7 @@ todoContainer.addEventListener('click',function(e){
             return element.id == dataCellValue;
         });
         activeTodosArray.splice(elementIndex,1);
+        pushToArrayInLocalStorage(projectArray)
         displayTodos(activeTodosArray);
 
     } else if (id == "todoDetails") {
@@ -133,24 +144,38 @@ todoContainer.addEventListener('click',function(e){
             });
             const activeTodosArray = projectArray[projectIndex].todosArr;
             activeTodosArray.push(todo);
+            /// save to local storage
+           
             displayTodos(activeTodosArray)
+            pushToArrayInLocalStorage(projectArray)
             e.target.parentNode.innerHTML = ''
         });
     };
 });
 
 ///Switching between projects + added new project
+
 projectsContainer.addEventListener('click', function(e) {
+    const AllProjectTitles = document.querySelectorAll('.projectTitle')
+    console.log(AllProjectTitles)
     const id = e.target.id;
     if(id == 'projectTitle') {
         const name = e.target.innerHTML;
+        
+        
+        AllProjectTitles.forEach((title) => {
+            title.classList.remove('activeProject');
+        });
+        e.target.classList.add('activeProject')
     
         activeProject = name;
         
         const index = projectArray.findIndex((element) => {
             return element.title == name;
         });
-        displayTodos(projectArray[index].todosArr)
+        
+        displayTodos(projectArray[index].todosArr);
+
     } else if (id == 'addNewProject') {
         const projectForm = document.getElementById('projectForm');
         projectForm.addEventListener('submit',function(e) {
