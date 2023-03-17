@@ -1,6 +1,6 @@
 
 import handleEdit from './handleEdit';
-import addNewTodoForm from './addNewTodoForm copy'
+
 import {format} from 'date-fns';
 
 export default function displayTodos (array) {
@@ -108,10 +108,7 @@ export default function displayTodos (array) {
     
 
     todoContainer.appendChild(addNewTodoDiv);
-    addNewTodoDiv.appendChild(addNewTodo)
-    addNewTodo.addEventListener('click', () => {  
-        addNewTodoForm(); 
-    });
+    addNewTodoDiv.appendChild(addNewTodo);
 
 }
 

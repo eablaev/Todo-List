@@ -1,5 +1,5 @@
 
-import addNewProjectForm from './addNewProjectForm';
+
 
 export default function displayProjects(array) {
     
@@ -34,10 +34,7 @@ export default function displayProjects(array) {
     
 
     projectsContainer.appendChild(newProject);
-    newProject.addEventListener('click', () => {  
-        addNewProjectForm(); 
-        console.log('inside display projectsAddNewProject')
-    });
+  
 }
 
 

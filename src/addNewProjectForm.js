@@ -30,7 +30,7 @@ export default function addNewProjectForm() {
     cancelProject.innerHTML = 'Cancel';
     cancelProject.addEventListener('click',function(e){
         e.preventDefault();
-        projectForm.remove();
+        projectFormContainer.remove();
     });
     
     const projectButtonContainer = document.createElement('div');

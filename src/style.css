@@ -18,19 +18,13 @@ html {
 .todoFormContainer{
     background-color: var(--blue);
     border-radius: 10px;
-    display: none; 
-    padding: 0.3rem;
-}
-
-    
-.todoFormContainer.showTodoForm {
-    display: flex;
+    display: flex; 
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  
-
+    padding: 0.3rem;
 }
+
 
 .formHeader {
     display: flex;
@@ -376,6 +370,7 @@ todoDiv styling
     font-size: 1.4rem;
    
 }
+
 .projectTitle:hover {
     transform: scale(1.1);
     font-weight: 200;

@@ -20,9 +20,7 @@ closeButton.classList.add('closeForm');
 closeButton.id = 'closeForm';
 closeButton.textContent = 'X';
 closeButton.addEventListener('click', function(e){
-    e.target.parentNode.parentNode.classList.remove('showTodoForm')
-    e.target.parentNode.parentNode.innerHTML = '';
-     
+    todoFormContainer.remove();  
 });
 
 // Create the form element

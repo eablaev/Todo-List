@@ -8,6 +8,9 @@ import handleCheckBox from './handleCheckBox';
 import './style.css';
 import handleEdit from './handleEdit';
 
+import addNewTodoForm from './addNewTodoForm copy';
+import addNewProjectForm from './addNewProjectForm';
+
 let projectArray = [];
 //if no data in local storage asssign dummy data to projectArray
 //if there is data, parse it to the projectArray
@@ -126,7 +129,12 @@ todoContainer.addEventListener('click',function(e){
         console.log(e.target.parentNode.parentNode.attributes[2])
         handleCheckBox(dataCellValue)
     } else if (id == 'addNewTodo') { 
-        todoFormContainer.classList.add('showTodoForm');
+        if(document.getElementById('todoFormContainer')) {
+            console.log(document.getElementById('todoFormContainer'))
+            document.getElementById('todoFormContainer').remove()
+        }
+        addNewTodoForm()
+        
         const form = document.getElementById('todoForm');
         form.addEventListener('submit', function(e){
             e.preventDefault();
@@ -177,7 +185,11 @@ projectsContainer.addEventListener('click', function(e) {
         displayTodos(projectArray[index].todosArr);
 
     } else if (id == 'addNewProject') {
-        const projectForm = document.getElementById('projectForm');
+        if(document.getElementById('projectFormContainer')) {
+          
+            document.getElementById('projectFormContainer').remove()
+        }
+        addNewProjectForm();
         projectForm.addEventListener('submit',function(e) {
             e.preventDefault(); 
              const projectFormName = document.getElementById('projectFormName')
